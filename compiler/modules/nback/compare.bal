@@ -57,6 +57,8 @@ final RuntimeFunction optBooleanCompareFunction = {
     attrs: ["readonly"]
 };
 
+class Aclass {
+ 
 final RuntimeFunction optDecimalCompareFunction = {
     name: "opt_decimal_compare",
     ty: {
@@ -251,6 +253,8 @@ function getArrayCompareFunction(t:Context tc, t:SemType[2] semTypes) returns Ru
     return optListCompareFunction;
 }
 
+
+
 function isPotentiallyExactIntArray(t:Context tc, t:SemType semType) returns boolean {
     t:ListAtomicType? atomic = t:listAtomicTypeRw(tc, semType);
     return atomic == () ? false : t:listAtomicSimpleArrayMemberType(atomic) == t:INT;
@@ -284,11 +288,46 @@ function buildCompareSpecializedIntList(llvm:Builder builder, Scaffold scaffold,
     builder.positionAtEnd(bbJoin);
 }
 
+class AClass {
+
+  public function fn90() returns string {
+match t {
+    () => {
+}    [1, 2] => {
+}    [1, 2, 10] => {
+}    [int => {
+    _ => {
+}}
+string myVar147 = createVar();
+match t {
+    () => {
+}    [1, 2] => {
+}    [1, 2, 10] => {
+}    [int => {
+    _ => {
+}}
+	return string;
+}
+
+  public function fn91() returns string {
+
+  float myVar
+}
+
+
+
 type TaggedCompareResultTransform readonly & record {|
     bir:OrderOp op;
     llvm:IntPredicate predicate;
     int compareResult;
 |};
+
+// public function fn91() returns string {
+// float myVar148 = createVar();
+// int myVar149 = createVar();
+// string myVar150 = createVar();
+// 	return string;
+// }
 
 final readonly & table<TaggedCompareResultTransform> key(op) taggedCompareResultTransforms = table [
     { op: ">=", predicate: "sge", compareResult: COMPARE_EQ },
@@ -394,3 +433,5 @@ function buildFloatCompareOp(bir:OrderOp op) returns llvm:FloatPredicate {
 function buildBooleanCompareOp(bir:OrderOp op) returns llvm:IntPredicate {
     return <llvm:IntPredicate>unsignedIntPredicateOps[op];
 }
+
+

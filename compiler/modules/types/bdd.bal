@@ -12,6 +12,9 @@
 // atom is not included. BDDs are constructed so that the atoms on
 // every path are in strictly increasing order.
 
+// import nballerina.nback;
+import nballerina.nback;
+
 public type Bdd BddNode|boolean;
 
 public type BddNode readonly & record {|

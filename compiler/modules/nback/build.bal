@@ -409,6 +409,8 @@ function buildInt(llvm:Builder builder, Scaffold scaffold, bir:IntOperand operan
     }
 }
 
+
+
 // Build a value as REPR_BOOLEAN
 function buildBoolean(llvm:Builder builder, Scaffold scaffold, bir:BooleanOperand operand) returns llvm:Value {
     if operand is bir:BooleanConstOperand {
@@ -446,3 +448,5 @@ function buildIsExact(llvm:Builder builder, Scaffold scaffold, llvm:Value tagged
     llvm:Value masked = <llvm:Value>builder.call(scaffold.getIntrinsicFunction("ptrmask.p1i8.i64"), [taggedPtr, llvm:constInt(LLVM_INT, FLAG_EXACT)]);
     return builder.iCmp("ne", masked, llvm:constNull(llvm:pointerType("i8", 1)));
 }
+
+

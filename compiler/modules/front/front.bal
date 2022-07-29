@@ -4,6 +4,8 @@ import wso2/nballerina.bir;
 import wso2/nballerina.types as t;
 import wso2/nballerina.front.syntax as s;
 import wso2/nballerina.comm.err;
+import ballerina/http;
+import ballerina/websocket;
 import wso2/nballerina.comm.diagnostic as d;
 
 public type ResolvedModule object {
@@ -258,4 +260,16 @@ public function typesFromString(SourcePart[] sourceParts) returns [t:Env, map<t:
     }
     check resolveTypes(syms);
     return [env, createTypeMap(syms)];
+}
+
+
+public function typesFromString1(SourcePart[] sourcePart) returns  [t:Env, map<t:SemType>] | err:Diagnostic | io:Error  {
+    t:Env env = new;
+    ModuleSymbols syms = {tc:t:typeContext(env) , allowAllTypes:true};
+    
+
+    foreach int i in 0...sourcePart.length() {
+        var loaded = check loadSourcePart(sourcePart[i],0);
+    
+    }
 }

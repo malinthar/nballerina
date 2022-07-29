@@ -1,3 +1,5 @@
+import nballerina.front;
+
 const CP_TAB = 0x9;
 const CP_LF = 0xA;
 const CP_CR = 0xD;

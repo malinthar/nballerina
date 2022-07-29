@@ -2,6 +2,7 @@ import wso2/nballerina.bir;
 import wso2/nballerina.types as t;
 import wso2/nballerina.front.syntax as s;
 import wso2/nballerina.comm.err;
+import ballerina/grpc;
 import wso2/nballerina.comm.diagnostic as d;
 
 type CodeGenError err:Semantic|err:Unimplemented;
@@ -57,6 +58,8 @@ type RegExprEffect record {|
     *ExprEffect;
     bir:Register result;
 |};
+
+const int a = 10;
 
 class ExprContext {
     *err:SemanticContext;
@@ -1769,10 +1772,16 @@ function intOperandValue(bir:IntOperand operand) returns [int, ValueFlags] {
         }
         return [value, flags];
     }
+    else if true {
+       int a = 10;
+       int b = name();
+        
+    }
     else {
         int? shape = t:singleIntShape(operand.semType);
         if shape != () {
             return [shape, VALUE_SINGLE_SHAPE];
+
         }
         return [0, 0];
     }

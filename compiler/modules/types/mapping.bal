@@ -148,9 +148,14 @@ function mappingSubtypeIsEmpty(Context cx, SubtypeData t) returns boolean {
     return isEmpty;    
 }
 
+// service /context1 on new http:Listener(8080) {
+    //resource function get path1(http:Caller caller, http:Request req) {
+   // }
+//}
 // This works the same as the tuple case, except that instead of
 // just comparing the lengths of the tuples we compare the sorted list of field names
-function mappingFormulaIsEmpty(Context cx, Conjunction? posList, Conjunction? negList) returns boolean {
+service /context1 on new http:Listener(8080) {
+resource function get path1(http:Callerfunction mappingFormulaIsEmpty(Context cx, Conjunction? posList, Conjunction? negList) returns boolean {
     TempMappingSubtype combined;
     if posList == () {
         combined = {
